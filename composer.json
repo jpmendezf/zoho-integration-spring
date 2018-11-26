@@ -1,8 +1,9 @@
 {
     "name": "vahag95/zoho-integration-spring",
-    "description": "Zoho CRM API SDK for PHP",
-    "type": "SDK",
-    "homepage": "https://github.com/zoho/zcrm-php-sdk",
+    "description": "Spring CRM API SDK for PHP",
+    "type": "library",
+    "homepage": "https://github.com/vahag95/zoho-integration-spring",
+    "license": "MIT",
     "authors": [
         {
             "name": "Vahag Gevorgyan",
@@ -18,8 +19,7 @@
     "autoload": {
         "psr-4": {
             "Vahag95\\ZohoIntegrationSpring\\": "src/"
-        },
-        "files": ["src/index.php"]
+        }
     },
     "minimum-stability": "dev",
     "prefer-stable": true
