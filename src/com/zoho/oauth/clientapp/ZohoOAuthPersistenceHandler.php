@@ -26,7 +26,7 @@ class ZohoOAuthPersistenceHandler implements ZohoOAuthPersistenceInterface
 		}
 		catch (Exception $ex)
 		{
-			Logger:severe("Exception occured while inserting OAuthTokens into DB(file::ZohoOAuthPersistenceHandler)({$ex->getMessage()})\n{$ex}");
+			dd("Exception occured while inserting OAuthTokens into DB(file::ZohoOAuthPersistenceHandler)({$ex->getMessage()})\n{$ex}");
 		}
 		finally {
 			if($db_link!=null)
