@@ -57,6 +57,10 @@ class ZohoOAuth
                     {
                        self::$configProperties[ZohoOAuthConstants::DATABASE_NAME] = env('DB_DATABASE');
                     }
+                    if(!array_key_exists(ZohoOAuthConstants::DATABASE_SOCKET,self::$configProperties))
+                    {
+                       self::$configProperties[ZohoOAuthConstants::DATABASE_SOCKET] = env('DB_SOCKET');
+                    }
 				}
 	            $oAuthParams=new ZohoOAuthParams();
 	            
