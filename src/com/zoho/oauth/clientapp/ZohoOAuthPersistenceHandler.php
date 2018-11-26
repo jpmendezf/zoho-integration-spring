@@ -99,7 +99,7 @@ class ZohoOAuthPersistenceHandler implements ZohoOAuthPersistenceInterface
 	{
 	 
 		$mysqli_con = new mysqli("localhost",ZohoOAuth::getConfigValue(ZohoOAuthConstants::DATABASE_USERNAME),
-		ZohoOAuth::getConfigValue(ZohoOAuthConstants::DATABASE_PASSWORD), ZohoOAuth::getConfigValue(ZohoOAuthConstants::DATABASE_NAME), '', ZohoOAuth::getConfigValue(ZohoOAuthConstants::DATABASE_SOCKET));
+		ZohoOAuth::getConfigValue(ZohoOAuthConstants::DATABASE_PASSWORD), ZohoOAuth::getConfigValue(ZohoOAuthConstants::DATABASE_NAME), '3306', ZohoOAuth::getConfigValue(ZohoOAuthConstants::DATABASE_SOCKET));
 		if ($mysqli_con->connect_errno) {
 			OAuthLogger::severe("Failed to connect to MySQL: (" . $mysqli_con->connect_errno . ") " . $mysqli_con->connect_error);
             \Ucraft\Helper::log("Failed to connect to MySQL: (\" . $mysqli_con->connect_errno . \") \" . $mysqli_con->connect_error", \Ucraft\typeLogObjectTypes::custom);

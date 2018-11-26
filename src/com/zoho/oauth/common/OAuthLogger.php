@@ -3,9 +3,9 @@ class OAuthLogger
 {
 	public static function writeToFile($msg)
 	{
-		$filePointer=fopen(dirname(__FILE__)."/../logger/OAuth.log","a");
-		fwrite($filePointer,sprintf("%s %s\n",date("Y-m-d H:i:s"),$msg));
-		fclose($filePointer);
+		// $filePointer=fopen(dirname(__FILE__)."/../logger/OAuth.log","a");
+		// fwrite($filePointer,sprintf("%s %s\n",date("Y-m-d H:i:s"),$msg));
+		// fclose($filePointer);
 	}
 	
 	public static function warn($msg)
