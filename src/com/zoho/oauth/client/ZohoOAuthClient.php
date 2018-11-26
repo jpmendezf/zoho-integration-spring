@@ -75,11 +75,8 @@ class ZohoOAuthClient
 			if(array_key_exists(ZohoOAuthConstants::ACCESS_TOKEN,$responseJSON))
 			{
 				$tokens = self::getTokensFromJSON($responseJSON);
-                \Ucraft\Helper::log($tokens, \Ucraft\typeLogObjectTypes::custom);
 				$tokens->setUserEmailId(self::getUserEmailIdFromIAM($tokens->getAccessToken()));
-                \Ucraft\Helper::log('getUserEmailIdFromIAM', \Ucraft\typeLogObjectTypes::custom);
 				ZohoOAuth::getPersistenceHandlerInstance()->saveOAuthData($tokens);
-                \Ucraft\Helper::log('saveOAuthData', \Ucraft\typeLogObjectTypes::custom);
 				return $tokens;
 			}
 			else

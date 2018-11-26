@@ -12,7 +12,6 @@ class ZohoOAuthPersistenceHandler implements ZohoOAuthPersistenceInterface
 			self::deleteOAuthTokens($zohoOAuthTokens->getUserEmailId());
 			$db_link=self::getMysqlConnection();
 			$query="INSERT INTO oauthtokens(useridentifier,accesstoken,refreshtoken,expirytime) VALUES('".$zohoOAuthTokens->getUserEmailId()."','".$zohoOAuthTokens->getAccessToken()."','".$zohoOAuthTokens->getRefreshToken()."',".$zohoOAuthTokens->getExpiryTime().")";
-            \Ucraft\Helper::log($query, \Ucraft\typeLogObjectTypes::custom);
 			/*$query="INSERT INTO oauthtokens(useridentifier,accesstoken,refreshtoken,expirytime) VALUES(?,?,?,?)";
 			$stmt=$db_link->prepare($query);
 			//ssi represents data types of param values (String,String,Integer)
@@ -102,7 +101,6 @@ class ZohoOAuthPersistenceHandler implements ZohoOAuthPersistenceInterface
 		ZohoOAuth::getConfigValue(ZohoOAuthConstants::DATABASE_PASSWORD), ZohoOAuth::getConfigValue(ZohoOAuthConstants::DATABASE_NAME), '3306', ZohoOAuth::getConfigValue(ZohoOAuthConstants::DATABASE_SOCKET));
 		if ($mysqli_con->connect_errno) {
 			OAuthLogger::severe("Failed to connect to MySQL: (" . $mysqli_con->connect_errno . ") " . $mysqli_con->connect_error);
-            \Ucraft\Helper::log("Failed to connect to MySQL: (\" . $mysqli_con->connect_errno . \") \" . $mysqli_con->connect_error", \Ucraft\typeLogObjectTypes::custom);
 			echo "Failed to connect to MySQL: (" . $mysqli_con->connect_errno . ") " . $mysqli_con->connect_error;
 		}
 		/*$db_link = mysql_connect('localhost:3307', 'root', '');
