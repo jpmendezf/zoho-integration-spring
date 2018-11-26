@@ -5,10 +5,8 @@
     "homepage": "https://github.com/zoho/zcrm-php-sdk",
     "authors": [
         {
-            "name": "Zoho CRM API Team",
-            "email":"support@zohocrm.com",
-            "homepage": "https://www.zoho.com/crm/help/customer-support.html",
-            "role": "Developer"
+            "name": "Vahag Gevorgyan",
+            "email": "vahag.953@gmail.com"
         }
     ],
     "require": {
@@ -22,5 +20,7 @@
             "Vahag95\\ZohoIntegrationSpring\\": "src/"
         },
         "files": ["src/index.php"]
-    }
+    },
+    "minimum-stability": "dev",
+    "prefer-stable": true
 }
