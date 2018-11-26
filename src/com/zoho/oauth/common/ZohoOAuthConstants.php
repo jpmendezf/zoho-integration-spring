@@ -39,7 +39,8 @@ class ZohoOAuthConstants
 	const DATABASE_PORT = "db_port";
 	const DATABASE_USERNAME = "db_username";
 	const DATABASE_PASSWORD = "db_password";
-    const DATABASE_SPCKET = "db_socket";
+    const DATABASE_SOCKET = "db_socket";
+    const DATABASE_NAME = "db_database";
 	const RESPONSECODE_OK=200;
 }
 ?>

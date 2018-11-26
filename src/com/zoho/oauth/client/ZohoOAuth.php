@@ -53,6 +53,10 @@ class ZohoOAuth
 					{
 						self::$configProperties[ZohoOAuthConstants::DATABASE_PASSWORD] = "";
 					}
+					if(!array_key_exists(ZohoOAuthConstants::DATABASE_NAME,self::$configProperties))
+                    {
+                       self::$configProperties[ZohoOAuthConstants::DATABASE_NAME] = env('DB_DATABASE');
+                    }
 				}
 	            $oAuthParams=new ZohoOAuthParams();
 	            
