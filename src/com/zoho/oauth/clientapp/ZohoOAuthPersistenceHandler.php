@@ -9,15 +9,22 @@ class ZohoOAuthPersistenceHandler implements ZohoOAuthPersistenceInterface
 	{
 		$db_link=null;
 		try{
-			self::deleteOAuthTokens($zohoOAuthTokens->getUserEmailId());
-			$db_link=self::getMysqlConnection();
+			// self::deleteOAuthTokens($zohoOAuthTokens->getUserEmailId());
+			// $db_link=self::getMysqlConnection();
 			$query="INSERT INTO oauthtokens(useridentifier,accesstoken,refreshtoken,expirytime) VALUES('".$zohoOAuthTokens->getUserEmailId()."','".$zohoOAuthTokens->getAccessToken()."','".$zohoOAuthTokens->getRefreshToken()."',".$zohoOAuthTokens->getExpiryTime().")";
+			$result = \Illuminate\Support\Facades\DB::connection()
+            ->getPdo()
+            ->exec($query);
+            if($result === false) {
+            	dd($result->errorInfo());
+            }
 			/*$query="INSERT INTO oauthtokens(useridentifier,accesstoken,refreshtoken,expirytime) VALUES(?,?,?,?)";
 			$stmt=$db_link->prepare($query);
 			//ssi represents data types of param values (String,String,Integer)
 			$stmt->bind_param("sssi",$zohoOAuthTokens->getUserEmailId(),$zohoOAuthTokens->getAccessToken(),$zohoOAuthTokens->getRefreshToken(),$zohoOAuthTokens->getExpiryTime());
 			$stmt->execute();*/
-			$result=mysqli_query($db_link, $query);
+
+			// $result=mysqli_query($db_link, $query);
 			if(!$result)
 			{
 				OAuthLogger::severe("OAuth token insertion failed: (" . $db_link->errno . ") " . $db_link->error);
@@ -26,7 +33,7 @@ class ZohoOAuthPersistenceHandler implements ZohoOAuthPersistenceInterface
 		}
 		catch (Exception $ex)
 		{
-			dd("Exception occured while inserting OAuthTokens into DB(file::ZohoOAuthPersistenceHandler)({$ex->getMessage()})\n{$ex}");
+			dd($ex->getMessage());
 		}
 		finally {
 			if($db_link!=null)
